@@ -422,5 +422,25 @@ class FrontendController extends Controller
                 return back();
             }
     }
+
+    public function store(Request $request)
+    {
+        // Validate dữ liệu từ form
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|digits:10',
+            'date' => 'required|date',
+            'time' => 'required',
+            'doctor_id' => 'required|exists:doctors,id',
+        ]);
+    
+        // Lưu dữ liệu đặt khám
+        \App\Models\Booking::create($validated);
+    
+        // Chuyển hướng lại trang đặt khám với thông báo thành công
+        return redirect()->route('bookdoctor')->with('success', 'Đặt lịch thành công!');
+    }
+    
+
     
 }

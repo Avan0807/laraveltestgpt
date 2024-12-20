@@ -51,20 +51,13 @@
                                 </div>
                                 
                                 <div class="col-12">
-                                    <div class="captcha">
-                                        <span>{!! captcha_img('math') !!}</span>
-                                        <button type="button" class="btn btn-danger reload" id="reload">&#x21bb;</button>
+                                    <div class="form-group">
+                                        <label><span></span></label>
+                                        <!-- reCAPTCHA v3 token is added automatically by the script -->
+                                        <input type="hidden" name="captcha_code" id="captcha_code" value="">
                                     </div>
                                 </div>
-                                
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Captcha<span>*</span></label>
-                                        <input type="text" name="captcha" placeholder="" required="required">
-                                        @error('captcha')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+
 
                                 <div class="col-12">
                                     <div class="form-group login-btn">
@@ -126,18 +119,14 @@
 @endpush
 
 @push('scripts')
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
 <script>
-    $('#reload').click(function(){
-    $.ajax({
-        type:'GET',
-        url:'{{ route('refresh.captcha') }}',
-        success:function(data){
-            $(".captcha span").html(data.captcha);
-            $("#captcha_code").val(data.captcha_code);
-        }
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', { action: 'login' }).then(function(token) {
+            document.getElementById('captcha_code').value = token;
+        });
     });
-});
-
 </script>
-
 @endpush
+
+

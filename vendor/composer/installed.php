@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => 'b84b57deeef56f4cdf193e340826cf10f41a5927',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'e782019110d44e5a627f5fff40aec7cefcc8f9e6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'anhskohbo/no-captcha' => array(
+            'pretty_version' => '3.6.0',
+            'version' => '3.6.0.0',
+            'reference' => '6f129419a7f0d0a1ed9849fdaaed34e6d83a03cc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../anhskohbo/no-captcha',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'asm89/stack-cors' => array(
             'pretty_version' => '1.3.0',
             'version' => '1.3.0.0',
@@ -419,9 +428,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => 'b84b57deeef56f4cdf193e340826cf10f41a5927',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'e782019110d44e5a627f5fff40aec7cefcc8f9e6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

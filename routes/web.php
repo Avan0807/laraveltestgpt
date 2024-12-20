@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CaptchaController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +29,10 @@ Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.re
 Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
 
 Route::get('/','FrontendController@home')->name('home');
+
+//bookdoctor
+Route::get('/bookdoctor', 'FrontendController@store')->name('bookdoctor');
+Route::post('/bookdoctor', 'FrontendController@store')->name('bookdoctor.submit');
 
 // Frontend Routes
 Route::get('/home', 'FrontendController@index');

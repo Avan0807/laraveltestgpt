@@ -5,7 +5,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-cart-arrow-down"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Admin</div>
+      <div class="sidebar-brand-text mx-3">Quản trị viên</div>
     </a>
 
     <!-- Divider -->
@@ -15,20 +15,20 @@
     <li class="nav-item active">
       <a class="nav-link" href="{{route('admin')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Trang Tổng Quan</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <div class="sidebar-heading">
-        Order
+        Đặt hàng
     </div>
     <!--Orders -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('order.index')}}">
             <i class="fas fa-cart-plus"></i>
-            <span>Orders</span>
+            <span>Đặt hàng</span>
         </a>
     </li>
 
@@ -75,13 +75,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse">
           <i class="fas fa-sitemap"></i>
-          <span>Category</span>
+          <span>Danh Mục</span>
         </a>
         <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('category.create')}}">Add Category</a>
+            <h6 class="collapse-header">Tùy Chọn Danh Mục:</h6>
+            <a class="collapse-item" href="{{route('category.index')}}">Danh Mục</a>
+            <a class="collapse-item" href="{{route('category.create')}}">Thêm Danh Mục</a>
           </div>
         </div>
     </li>
@@ -93,9 +93,9 @@
         </a>
         <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Product Options:</h6>
-            <a class="collapse-item" href="{{route('product.index')}}">Products</a>
-            <a class="collapse-item" href="{{route('product.create')}}">Add Product</a>
+            <h6 class="collapse-header">Tùy Chọn Sản Phẩm:</h6>
+            <a class="collapse-item" href="{{route('product.index')}}">Sản Phẩm</a>
+            <a class="collapse-item" href="{{route('product.create')}}">Thêm Sản Phẩm</a>
           </div>
         </div>
     </li>

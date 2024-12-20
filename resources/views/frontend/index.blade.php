@@ -17,18 +17,18 @@
                     <div class="carousel-caption d-none d-md-block text-left">
                         <h1 class="wow fadeInDown">{{$banner->title}}</h1>
                         <p>{!! html_entity_decode($banner->description) !!}</p>
-                        <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
+                        <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Mua Ngay<i class="far fa-arrow-alt-circle-right"></i></i></a>
                     </div>
                 </div>
             @endforeach
         </div>
         <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Trước</span>
         </a>
         <a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Tiếp</span>
         </a>
     </section>
 @endif
@@ -55,7 +55,7 @@
                                 @endif
                                 <div class="content">
                                     <h3>{{$cat->title}}</h3>
-                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
+                                        <a href="{{route('product-cat',$cat->slug)}}">Khám Phá Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>New Items</h2>
+                        <h2>Sản Phẩm Mới</h2>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                                 @endphp
                                 @if($categories)
                                 <button class="btn" style="background:black"data-filter="*">
-                                    Recently Added
+                                    Mới thêm gần đây
                                 </button>
                                     @foreach($categories as $key=>$cat)
 
@@ -122,22 +122,22 @@
                         <img class="default-img" src="{{$photos[0]}}" alt="{{$photos[0]}}">
                         <img class="hover-img" src="{{$photos[0]}}" alt="{{$photos[0]}}">
                         @if($product->stock <= 0)
-                            <span class="out-of-stock">Sold Out</span>
+                            <span class="out-of-stock">Hết Hàng</span>
                         @elseif($product->condition == 'new')
-                            <span class="new">New</span>
+                            <span class="new">Mới</span>
                         @elseif($product->condition == 'hot')
-                            <span class="hot">Hot</span>
+                            <span class="hot">Nổi Bật</span>
                         @else
                             <span class="price-dec">{{$product->discount}}% Off</span>
                         @endif
                     </a>
                     <div class="button-head">
                         <div class="product-action">
-                            <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class="ti-eye"></i><span>Quick Shop</span></a>
-                            <a title="Wishlist" href="{{route('add-to-wishlist', $product->slug)}}"><i class="ti-heart"></i><span>Add to Wishlist</span></a>
+                            <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class="ti-eye"></i><span>Mua nhanh</span></a>
+                            <a title="Wishlist" href="{{route('add-to-wishlist', $product->slug)}}"><i class="ti-heart"></i><span>Yêu Thích</span></a>
                         </div>
                         <div class="product-action-2">
-                            <a title="Add to cart" href="{{route('add-to-cart', $product->slug)}}">Add to cart</a>
+                            <a title="Add to cart" href="{{route('add-to-cart', $product->slug)}}">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                             <div class="content">
                                 <p>{{$data->cat_info['title']}}</p>
                                 <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
-                                <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
+                                <a href="{{route('product-detail',$data->slug)}}">Mua Ngay</a>
                             </div>
                         </div>
                     </div>
@@ -198,7 +198,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>Hot Item</h2>
+                    <h2>Sản phẩm nổi bật</h2>
                 </div>
             </div>
         </div>
@@ -221,11 +221,11 @@
                                 </a>
                                 <div class="button-head">
                                     <div class="product-action">
-                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Mua nhanh</span></a>
+                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Yêu Thích</span></a>
                                     </div>
                                     <div class="product-action-2">
-                                        <a href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
+                                        <a href="{{route('add-to-cart',$product->slug)}}">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
-                            <h1>Latest Items</h1>
+                            <h1>Sản Phẩm Mới Nhất</h1>
                         </div>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>From Our Blog</h2>
+                    <h2>Blog của tôi</h2>
                 </div>
             </div>
         </div>
@@ -320,7 +320,7 @@
                             <div class="content">
                                 <p class="date">{{$post->created_at->format('d M , Y. D')}}</p>
                                 <a href="{{route('blog.detail',$post->slug)}}" class="title">{{$post->title}}</a>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Continue Reading</a>
+                                <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Đọc tiếp</a>
                             </div>
                         </div>
                         <!-- End Single Blog  -->
@@ -341,8 +341,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-rocket"></i>
-                    <h4>Free shiping</h4>
-                    <p>Orders over $100</p>
+                    <h4>Giao hàng miễn phí</h4>
+                    <p>Đơn hàng trên 1.000.000đ</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -350,8 +350,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-reload"></i>
-                    <h4>Free Return</h4>
-                    <p>Within 30 days returns</p>
+                    <h4>Trả hàng miễn phí</h4>
+                    <p>Trả lại trong vòng 30 ngày</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -359,8 +359,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-lock"></i>
-                    <h4>Sucure Payment</h4>
-                    <p>100% secure payment</p>
+                    <h4>Thanh toán an toàn</h4>
+                    <p>Thanh toán an toàn 100%</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -368,8 +368,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-tag"></i>
-                    <h4>Best Peice</h4>
-                    <p>Guaranteed price</p>
+                    <h4>Giá tốt nhất</h4>
+                    <p>Giá đảm bảo</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -431,13 +431,13 @@
                                                         @endif
                                                     @endfor
                                                 </div>
-                                                <a href="#"> ({{$rate_count}} customer review)</a>
+                                                <a href="#"> ({{$rate_count}} đánh giá của khách hàng)</a>
                                             </div>
                                             <div class="quickview-stock">
                                                 @if($product->stock >0)
-                                                <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
+                                                <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} trong kho</span>
                                                 @else
-                                                <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out stock</span>
+                                                <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} hết hàng</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -496,7 +496,7 @@
                                                 <!--/ End Input Order -->
                                             </div>
                                             <div class="add-to-cart">
-                                                <button type="submit" class="btn">Add to cart</button>
+                                                <button type="submit" class="btn">Thêm vào giỏ hàng</button>
                                                 <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>

@@ -43,8 +43,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    
                     </div>
+
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -54,6 +54,7 @@
                             </label>
                         </div>
                     </div>
+                    <input type="hidden" name="captcha_code" id="captcha_code" value="">
                     <button type="submit" class="btn btn-success btn-user btn-block">
                       Login
                     </button>
@@ -74,10 +75,21 @@
         </div>
 
       </div>
-<!-- Visit 'codeastro' for more projects -->
+
     </div>
 
   </div>
 </body>
 
 </html>
+
+@push('scripts')
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', { action: 'login' }).then(function(token) {
+            document.getElementById('captcha_code').value = token;  // Đảm bảo token được gán vào trường captcha_code
+        });
+    });
+</script>
+@endpush
