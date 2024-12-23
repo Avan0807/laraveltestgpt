@@ -49,15 +49,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label><span></span></label>
-                                        <!-- reCAPTCHA v3 token is added automatically by the script -->
-                                        <input type="hidden" name="captcha_code" id="captcha_code" value="">
-                                    </div>
-                                </div>
-
+                        
 
                                 <div class="col-12">
                                     <div class="form-group login-btn">
@@ -79,7 +71,6 @@
                                     @endif
                                 </div>
 
-                                <input type="hidden" name="captcha_code" id="captcha_code" value="">
                             </div>
                         </form>
                         <!--/ End Form -->
@@ -119,14 +110,7 @@
 @endpush
 
 @push('scripts')
-<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-<script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', { action: 'login' }).then(function(token) {
-            document.getElementById('captcha_code').value = token;
-        });
-    });
-</script>
+
 @endpush
 
 

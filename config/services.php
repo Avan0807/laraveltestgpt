@@ -48,10 +48,5 @@ return [
         'redirect' => 'http://localhost:8000/login/facebook/callback',
      ],
 
-     'recaptcha' => [
-        'sitekey' => env('6LcZOZ8qAAAAAFgAGOYlSygd8fIZELZlJlA1dXWx'),
-        'secret' => env('6LcZOZ8qAAAAAHk48T6eSkDmGad5kyJXibyNtUem'),
-     ],
-
 
 ];

@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Doctor;
 
 class Booking extends Model
 {
-    use HasFactory;
 
     // Tên bảng trong database (nếu không tuân theo quy tắc Laravel)
     protected $table = 'bookings';
@@ -29,11 +28,5 @@ class Booking extends Model
     {
         return $this->belongsTo(Doctor::class, 'doctor_id');
     }
-
-    public function bookings()
-    {
-        return $this->hasMany(Booking::class, 'doctor_id');
-    }
     
-
 }

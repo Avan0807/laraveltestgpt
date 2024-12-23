@@ -54,7 +54,7 @@
                             </label>
                         </div>
                     </div>
-                    <input type="hidden" name="captcha_code" id="captcha_code" value="">
+                    
                     <button type="submit" class="btn btn-success btn-user btn-block">
                       Login
                     </button>
@@ -84,12 +84,5 @@
 </html>
 
 @push('scripts')
-<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-<script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', { action: 'login' }).then(function(token) {
-            document.getElementById('captcha_code').value = token;  // Đảm bảo token được gán vào trường captcha_code
-        });
-    });
-</script>
+
 @endpush

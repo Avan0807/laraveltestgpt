@@ -21,7 +21,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Photo</th>
-              <th>Join Date</th>
+              <th>Anh Văn</th>
               <th>Role</th>
               <th>Status</th>
               <th>Action</th>

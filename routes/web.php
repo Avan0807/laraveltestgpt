@@ -31,8 +31,8 @@ Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name(
 Route::get('/','FrontendController@home')->name('home');
 
 //bookdoctor
-Route::get('/bookdoctor', 'FrontendController@store')->name('bookdoctor');
-Route::post('/bookdoctor', 'FrontendController@store')->name('bookdoctor.submit');
+Route::get('/bookdoctor', 'FrontendController@bookingdoctor')->name('bookdoctor');
+Route::post('/submitbookdoctor', 'FrontendController@submitbookdoctor')->name('bookdoctor.submit');
 
 // Frontend Routes
 Route::get('/home', 'FrontendController@index');
@@ -147,15 +147,12 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
     // Captcha 
-    Route::get('/refresh_captcha', 'CaptchaController@refresh')->name('refresh.captcha');
 
     //Ajax
     Route::post('ajax/route', 'AjaxController@method')->middleware('verify.csrf.ajax');
 
 
 });
-
-
 
 
 // User section start

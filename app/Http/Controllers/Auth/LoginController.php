@@ -49,46 +49,6 @@ class LoginController extends Controller
         }
     }
 
-    // Refresh Captcha
-    public function refreshCaptcha()
-    {
-        return response()->json(['captcha' => captcha_img('math'), 'captcha_code' => Str::random(6)]);
-    }
-
-    // Attempt Login with reCAPTCHA
-    protected function attemptLogin(Request $request)
-    {
-        // Verify CAPTCHA token before login
-        $this->validateCaptcha($request);
-
-        return $this->guard()->attempt(
-            $this->credentials($request),
-            $request->filled('remember')
-        );
-    }
-
-    // Validate reCAPTCHA
-    private function validateCaptcha(Request $request)
-    {
-        // Get the CAPTCHA token from the form
-        $captchaToken = $request->input('captcha_code');
-
-        // Verify the CAPTCHA token with Google's API
-        $secret = env('RECAPTCHA_SECRET_KEY');  // Your secret key from the .env
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => $secret,
-            'response' => $captchaToken
-        ]);
-
-        dd($response->json());
-
-        $body = $response->json();
-
-        // If CAPTCHA verification fails, abort login and return error
-        if (!$body['success']) {
-            throw new \Exception('Captcha verification failed. Please try again.');
-        }
-    }
 
     // Define login credentials
     public function credentials(Request $request)
@@ -98,7 +58,6 @@ class LoginController extends Controller
             'password' => $request->password,
             'status' => 'active',
             'role' => 'admin',
-            'captcha' => $request->captcha_code,
         ];
     }
 }

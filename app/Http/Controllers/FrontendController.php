@@ -9,6 +9,8 @@ use App\Models\PostCategory;
 use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
+use App\Models\Booking;
+use App\Models\Doctor;
 use App\User;
 use Auth;
 use Session;
@@ -423,9 +425,18 @@ class FrontendController extends Controller
             }
     }
 
-    public function store(Request $request)
+    public function bookingdoctor()
     {
-        // Validate dữ liệu từ form
+        // Lấy danh sách bác sĩ từ database
+        $doctors = Doctor::all();
+
+        // Render view và truyền danh sách bác sĩ
+        return view('frontend.pages.bookdoctor', compact('doctors'));
+    }
+
+    public function submitbookdoctor(Request $request)
+    {
+        // Xử lý lưu thông tin đặt khám
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|digits:10',
@@ -433,12 +444,11 @@ class FrontendController extends Controller
             'time' => 'required',
             'doctor_id' => 'required|exists:doctors,id',
         ]);
-    
-        // Lưu dữ liệu đặt khám
-        \App\Models\Booking::create($validated);
-    
-        // Chuyển hướng lại trang đặt khám với thông báo thành công
-        return redirect()->route('bookdoctor')->with('success', 'Đặt lịch thành công!');
+
+        // Thêm logic lưu dữ liệu vào database
+        Booking::create($validated);
+
+        return redirect()->route('bookdoctor')->with('success', 'Đặt khám thành công!');
     }
     
 
